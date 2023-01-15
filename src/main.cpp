@@ -16,7 +16,7 @@ void bash() {
 
         if(strcmp(buffer, "exit\n") == 0) {
             fflush(stdout);
-            printf("this isn't you're terminal dummy...\n");
+            printf("NO.. I WILL NOT LET YOU EXIT THAT EASY!\n");
             sleep(3);
         }
         
