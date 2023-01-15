@@ -4,7 +4,7 @@
 #include <string.h>
 
 // to clear all the screen     printf("\033[2J\033[H");
-// to clear one line           printf("[2K");
+// clear  screen     printf('\033[2J');
 
 void bash() {
     char buffer[100];
@@ -14,15 +14,16 @@ void bash() {
     for(int i = 0; i < sizeof(buffer); i++) {
         buffer[i] = getch();
 
-        if(strcmp(buffer, "exit") == 0) {
+        if(strcmp(buffer, "exit\n") == 0) {
             fflush(stdout);
-            printf("this isn't you're terminal dummy...");
+            printf("this isn't you're terminal dummy...\n");
             sleep(3);
-            printf("[2K");
         }
         
         if(buffer[i] == 10) {
             buffer[i] = 0;
+
+            printf("\n");
 
             system(buffer);
             bash();
@@ -33,7 +34,7 @@ void bash() {
 int main() {
     char buffer[100];
 
-    printf("\033[2J\033[H");
+    printf("\033[H\033[2J");
 
     for(int i = 0; i < sizeof(buffer); i++) {
         buffer[i] = getch();
